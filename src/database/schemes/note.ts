@@ -1,7 +1,7 @@
 import { pgTable, uuid, char, text, integer, } from 'drizzle-orm/pg-core';
-import { timestamps } from './commons.ts';
+import { timestamps } from './commons.js';
 
-import { genUUIDv7 } from '../../utils/uuidv7.ts';
+import { genUUIDv7 } from '../../utils/uuidv7.js';
 
 export const notes = pgTable('notes', {
   id: uuid('id').primaryKey().$defaultFn(() => genUUIDv7()),
