@@ -1,0 +1,16 @@
+1. Conexion con la DB
+2. Migraciones
+3. Definir modo de authenticacion, externa con token BEARER.
+    1. Requests desde el frontend 
+    2. Requests desde webhooks
+** Crear notas con el usuario correcto.
+
+¿Para qué owner_user_id si ya hay “un user_id”?
+
+
+Node-RED, Service-to-API / Machine-to-Machine (M2M)
+
+
+el token de n8n , no sera visible?
+
+-- autehnticacion repaso.
