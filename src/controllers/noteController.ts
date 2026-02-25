@@ -6,15 +6,17 @@ import { simpleSuccess, success } from "../utils/responses.js";
 import { catchErrors } from "../utils/catchErrors.js";
 import { NotFoundError404 } from "../errors/NotFoundError404.js";
 import { InternalServerError505 } from "../errors/InternalServerError505.js";
+import { BadRequestError400 } from "../errors/BadRequestError400.js";
 
 export const createNote = catchErrors(async (req: Request, res: Response) => {
   const { type, content } = req.body;
 
+  if (!type || !content) {
+    throw new BadRequestError400('Type and content are required');
+  }
+
   if (!NOTE_TYPE_OPTIONS.includes(type)) {
-    return res.json({
-      success: false,
-      message: 'Invalid note type'+ ', the options are: ' + NOTE_TYPE_OPTIONS.join(', ') ,
-    });
+      throw new BadRequestError400('Invalid note type'+ ', the options are: ' + NOTE_TYPE_OPTIONS.join(', '));
   }
 
   const noteType = NOTE_TYPE[type as NoteTypeT];
@@ -37,7 +39,17 @@ export const createNote = catchErrors(async (req: Request, res: Response) => {
   })
 })
 
-export const getNotes = catchErrors(async (req: Request, res: Response) => {  
-  const notes = await getNotesService();
+export const getNotes = catchErrors(async (req: Request, res: Response) => {
+  const userId = req.user?.id;
+
+  const { type, date } = req.query;
+
+  console.log({type, date});
+
+   if (type && !NOTE_TYPE_OPTIONS.includes(type as string)) {
+    throw new BadRequestError400('Invalid note type'+ ', the options are: ' + NOTE_TYPE_OPTIONS.join(', '));
+  }
+
+  const notes = await getNotesService(userId, type as NoteTypeT, date as string);
   simpleSuccess(res, 200, notes);
 })

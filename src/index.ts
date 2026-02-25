@@ -7,10 +7,11 @@ import morgan from "morgan";
 import 'dotenv/config';
 
 import notesRoutes from "./routes/index.js";
+import authRoutes from "./routes/auth.js";
 
-import { globalLimiter } from "./midleware/rateLimiter.js";
-import { errorHandler } from "./midleware/errorHandler.js";
-import { notFound } from "./midleware/nodFound.js";
+import { globalLimiter } from "./middleware/rateLimiter.js";
+import { errorHandler } from "./middleware/errorHandler.js";
+import { notFound } from "./middleware/nodFound.js";
 
 const app = express();
 
@@ -42,6 +43,7 @@ if (process.env.NODE_ENV === 'development') {
 
 
 app.use("/api/v1", notesRoutes);
+app.use("/api/v1", authRoutes);
 
 app.get('/', (req, res) => {
   res.json({

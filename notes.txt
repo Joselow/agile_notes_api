@@ -2,8 +2,8 @@
 2. Migraciones 😁✅
 
 3. Definir modo de authenticacion, externa con token BEARER.
-    1. Requests desde el frontend 
-    2. Requests desde webhooks
+    1. Requests desde el frontend                          😁✅
+    2. Requests desde webhooks  Long-lived Access Tokens   😁✅
 
 ** Crear notas con el usuario correcto. 😁✅
 
@@ -16,3 +16,7 @@ Node-RED, Service-to-API / Machine-to-Machine (M2M)
 el token de n8n , no sera visible?
 
 -- autehnticacion repaso.
+
+
+Registarar la fuente, en la nota, de usuario list_app, o n8n,
+Automatico, fl_auto
