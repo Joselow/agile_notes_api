@@ -11,7 +11,9 @@
     "db:generate": "tsx node_modules/drizzle-kit/bin.cjs generate",
     "db:migrate": " drizzle-kit migrate",
     "db:studio": "tsx node_modules/drizzle-kit/bin.cjs studio",
-    "db:push": "tsx node_modules/drizzle-kit/bin.cjs push"
+    "db:push": "tsx node_modules/drizzle-kit/bin.cjs push",
+
+    "db:migrate:prod": "node dist/db/migrate.js"
   },
   "keywords": [],
   "author": "",
