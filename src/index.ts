@@ -15,6 +15,8 @@ import { notFound } from "./middleware/nodFound.js";
 
 const app = express();
 
+app.set('trust proxy', 1); // ← importante
+
 // Aplicas el rate limit a TODA la API (todo lo que cuelga de /api)
 app.use('/api', globalLimiter);
 
