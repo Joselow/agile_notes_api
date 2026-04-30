@@ -7,6 +7,23 @@
 
 ** Crear notas con el usuario correcto. 😁✅
 
+--
+Nuevos Request
+1. Agregar campo, origin en nota,
+    Enviar origin en las peticiones.
+2. Agregar campo
+
+noteCategory.ts: ['Task','Aprendizaje','Apunte']
+
+
+Agregar  campos 
+categoria  varchar
+is_completed boolean
+Categoría default: Apunte.
+Solo Task usa is_completed.
+Otras categorías → siempre false en backend (ignorar input).
+
+
 ¿Para qué owner_user_id si ya hay “un user_id”?
 
 
@@ -20,3 +37,12 @@ el token de n8n , no sera visible?
 
 Registarar la fuente, en la nota, de usuario list_app, o n8n,
 Automatico, fl_auto
+
+
+--- producion, debo compilar en DEV,  a producion solo dist, con migrate orm, nada de ts ni tsx, el dist cn 
+TCP o worflow
+
+-- DB sincornizada con scirpt migrate.
+
+-- configuracion de subdominio, api separado.
+
