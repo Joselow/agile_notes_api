@@ -5,6 +5,7 @@ import {
   getNotes as getNotesService,
   getNoteByIdForUser,
   updateNoteById,
+  deleteNoteById,
 } from "../services/noteService.js";
 import { NOTE_TYPE, NOTE_TYPE_OPTIONS, type NoteTypeT } from "../constants/noteType.js";
 import {
@@ -148,4 +149,13 @@ export const updateNote = catchErrors(async (req: Request, res: Response) => {
     throw new NotFoundError404("Note not found");
   }
   simpleSuccess(res, 200, updated);
+});
+
+export const deleteNote = catchErrors(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  if (!id) {
+    throw new BadRequestError400("Note id is required");
+  }
+  await deleteNoteById(id);
+  simpleSuccess(res, 200, { message: "Note deleted successfully" });
 });

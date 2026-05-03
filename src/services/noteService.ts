@@ -64,4 +64,10 @@ const updateNoteById = async (
   return updated;
 };
 
-export { createNote, getNotes, getNoteByIdForUser, updateNoteById };
+const deleteNoteById = async (
+  id: string,
+): Promise<void> => {
+  await db.delete(notes).where(eq(notes.id, id));
+};
+
+export { createNote, getNotes, getNoteByIdForUser, updateNoteById, deleteNoteById };

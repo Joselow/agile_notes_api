@@ -46,3 +46,7 @@ TCP o worflow
 
 -- configuracion de subdominio, api separado.
 
+
+
+comando scp
+scp -r D:\PORTAFOLIOOOOOO\PROYECTOS\notes_record\notes_api\dist deploy@157.173.118.237:/var/www/notes_record/agile_notes_api

@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { createNote, getNotes, updateNote } from "../controllers/noteController.js";
+import { createNote, getNotes, updateNote, deleteNote } from "../controllers/noteController.js";
 import { authenticateToken, authRecordNotes } from "../middleware/auth.js";
 
 const router = Router();
@@ -14,5 +14,7 @@ router.get(`/${NOTES_ROUTE_NAME}/public`, getNotes);
 router.post(`/${NOTES_ROUTE_NAME}`, authRecordNotes, createNote);
 
 router.put(`/${NOTES_ROUTE_NAME}/:id`, authRecordNotes, updateNote);
+
+router.delete(`/${NOTES_ROUTE_NAME}/:id`, authRecordNotes, deleteNote);
 
 export default router;
